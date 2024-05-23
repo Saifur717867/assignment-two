@@ -41,14 +41,10 @@ const productSchema = new Schema<TProduct>({
     required: true,
   },
   tags: {
-    type: String,
-    enum: {
-      values: ['smartphone', 'Apple', 'iOS'],
-      message: '{VALUE} is not a valid tags',
-    },
+    type: [String],
   },
   variants: {
-    type: variantSchema,
+    type: [variantSchema],
   },
   inventory: { type: inventorySchema, required: true },
 });

@@ -1,31 +1,25 @@
 import { z } from 'zod';
 
-// Define the variant schema
+// Define schema for the 'variants' array items
 const variantSchema = z.object({
-  type: z.string().min(3).max(10),
-  value: z.string().min(3).max(10),
+  type: z.string(),
+  value: z.string(),
 });
 
-// Define the inventory schema
+// Define schema for the 'inventory' object
 const inventorySchema = z.object({
-  quantity: z.number().min(1),
+  quantity: z.number(),
   inStock: z.boolean(),
 });
 
-// Define the product schema
+// Define the main schema
 const productSchema = z.object({
-  name: z.string().min(3).max(10),
-  description: z
-    .string()
-    .min(30)
-    .max(10000)
-    .refine((value) => /^[A-Z]/.test(value), {
-      message: 'description must be string',
-    }),
-  price: z.number().min(1).default(0),
-  category: z.string().min(3).max(1000),
-  tags: z.enum(['smartphone', 'Apple', 'iOS']),
-  variants: variantSchema,
+  name: z.string(),
+  description: z.string(),
+  price: z.number(),
+  category: z.string(),
+  tags: z.array(z.string()),
+  variants: z.array(variantSchema),
   inventory: inventorySchema,
 });
 

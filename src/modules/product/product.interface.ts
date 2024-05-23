@@ -13,7 +13,7 @@ export type TProduct = {
   description: string;
   price: number;
   category: string;
-  tags?: 'smartphone' | 'Apple' | 'iOS';
-  variants: TVariant;
+  tags: string[];
+  variants: TVariant[];
   inventory: TInventory;
 };
