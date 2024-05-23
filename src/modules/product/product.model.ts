@@ -41,8 +41,12 @@ const productSchema = new Schema<TProduct>({
     required: true,
   },
   tags: ['smartphone', 'Apple', 'iOS'],
-  variants: [variantSchema],
-  inventory: [inventorySchema],
+  variants: {
+    type: [variantSchema],
+  },
+  inventory: {
+    type: [inventorySchema],
+  },
 });
 
 export const product = model<TProduct>('product', productSchema);
