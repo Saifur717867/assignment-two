@@ -19,6 +19,30 @@ const orderCreate = async (req: Request, res: Response) => {
   }
 };
 
+// const orderCreate = async (req: Request, res: Response) => {
+//   const { email, productId, price, quantity } = req.body;
+//   try {
+//     const result = await orderService.orderCreate(
+//       email,
+//       productId,
+//       price,
+//       quantity,
+//     );
+//     // const result = await orderService.orderCreate(orderItem);
+//     res.status(200).json({
+//       success: true,
+//       message: 'Order created successfully!!',
+//       data: result,
+//     });
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       message: 'could not found',
+//       error: error,
+//     });
+//   }
+// };
+
 const getAllOrders = async (req: Request, res: Response) => {
   try {
     const result = await orderService.getAllOrders();

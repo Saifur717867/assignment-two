@@ -15,5 +15,5 @@ export type TProduct = {
   category: string;
   tags: 'smartphone' | 'Apple' | 'iOS';
   variants: [TVariant];
-  inventory: [TInventory];
+  inventory: TInventory;
 };
